@@ -24,12 +24,11 @@ describe('Homepage', () => {
       .get('form > input').eq(1).invoke('attr', 'placeholder').should('contain', 'URL to Shorten...')
       .get('button').should('be.visible').should('contain', 'Shorten Please!')
   })
+
+  it('Should update state with the input field value when a user fills out the form', () => {
+    cy.get('form > input').eq(0).type('Monkey photo').should('have.value', 'Monkey photo')
+      .get('form > input').eq(1)
+        .type('https://i.guim.co.uk/img/media/02088fb2247b13df646907d47f552dc69a236bc7/0_748_3235_1940/master/3235.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=172ccbaa7535c9e16d0455138d20a07c')
+        .should('have.value', 'https://i.guim.co.uk/img/media/02088fb2247b13df646907d47f552dc69a236bc7/0_748_3235_1940/master/3235.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=172ccbaa7535c9e16d0455138d20a07c')
+  })
 })
-
-
-
-
-
-
-
-// When a user fills out the form, the information is reflected in the input fields
