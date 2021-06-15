@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getUrls } from '../../apiCalls';
+import { getUrls, postUrl } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -20,8 +20,8 @@ export class App extends Component {
       })
    .catch(error => this.setState({ error: error.message }))
 }
-  postNewUrl = (newUrl) => {
-    console.log(newUrl)
+  postNewUrl = newUrl => {
+    postUrl(newUrl)
   }
 
   render() {
