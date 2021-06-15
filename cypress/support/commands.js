@@ -17,3 +17,19 @@ Cypress.Commands.add('fetchUrls', () => {
     ]
   })
 })
+
+
+
+Cypress.Commands.add('stubPost', () => {
+  cy.intercept(POST, 'http://localhost:3001/api/v1/urls',
+    {
+      "urls": [
+        {
+          "id": 3,
+          "long_url": "https://i.guim.co.uk/img/media/02088fb2247b13df646907d47f552dc69a236bc7/0_748_3235_1940/master/3235.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=172ccbaa7535c9e16d0455138d20a07c",
+          "short_url": "http://localhost:3001/useshorturl/3",
+          "title": "Monkey photo"
+        }
+      ]
+    }
+})
