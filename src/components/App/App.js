@@ -20,8 +20,8 @@ export class App extends Component {
       })
    .catch(error => this.setState({ error: error.message }))
 }
-  postNewUrl = (newYrl) => {
-
+  postNewUrl = (newUrl) => {
+    console.log(newUrl)
   }
 
   render() {
@@ -29,7 +29,7 @@ export class App extends Component {
       <main className="App">
         <header>
           <h1>URL Shortener</h1>
-          <UrlForm />
+          <UrlForm postNewUrl={this.postNewUrl}/>
         </header>
 
         <UrlContainer urls={this.state.urls}/>

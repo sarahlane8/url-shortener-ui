@@ -19,12 +19,11 @@ class UrlForm extends Component {
     const { title, urlToShorten } = this.state
     if (title && urlToShorten) {
       const newUrl = {
-        long_url: {this.state.urlToShorten},
+        long_url: this.state.urlToShorten,
         title,
       }
+      this.props.postNewUrl(newUrl)
     }
-  }
-    this.props.postNewUrl(newUrl)
     this.clearInputs()
   }
 
