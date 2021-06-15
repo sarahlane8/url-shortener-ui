@@ -8,11 +8,13 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      urls: []
+      urls: [],
+      error: ''
     }
   }
 
   componentDidMount() {
+    //do a fetch call here and set the repsonse to state
   }
 
   render() {
