@@ -13,6 +13,7 @@ export class App extends Component {
     }
   }
 
+
   componentDidMount = () => {
     getUrls()
       .then(data => {
@@ -22,15 +23,12 @@ export class App extends Component {
 }
 
 
-
-
   postNewUrl = newUrl => {
     postUrl(newUrl)
       .then(data => {
         this.setState({ urls: [...this.state.urls, data]})
       })
       .catch(error => this.setState({ error: error.message }))
-
   }
 
   render() {

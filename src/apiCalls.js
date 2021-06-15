@@ -16,12 +16,18 @@ export const postUrl = newUrl => {
 }
 
 
+
+
+
+
 const checkResponse = (response: Response) => {
   if (response.ok) {
     return response.json()
   }
   handleError(response.status)
 }
+
+
 
 const handleError = (status: number) => {
   throw Error('Sorry, something went wrong!')
