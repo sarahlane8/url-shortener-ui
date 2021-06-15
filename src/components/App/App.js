@@ -13,12 +13,12 @@ export class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     getUrls()
       .then(data => {
-        this.setState({ urls: data })
-      }, () => console.log(this.state.urls))
-   .catch(error => this.setState({ error: error.message }))
+        this.setState({ urls: data.urls })
+      })
+   // .catch(error => this.setState({ error: error.message }))
 }
 
 
