@@ -20,8 +20,17 @@ export class App extends Component {
       })
    .catch(error => this.setState({ error: error.message }))
 }
+
+
+
+
   postNewUrl = newUrl => {
     postUrl(newUrl)
+      .then(data => {
+        this.setState({ urls: [...this.state.urls, data]})
+      })
+      .catch(error => this.setState({ error: error.message }))
+
   }
 
   render() {
