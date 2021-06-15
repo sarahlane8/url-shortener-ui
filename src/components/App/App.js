@@ -18,9 +18,11 @@ export class App extends Component {
       .then(data => {
         this.setState({ urls: data.urls })
       })
-   // .catch(error => this.setState({ error: error.message }))
+   .catch(error => this.setState({ error: error.message }))
 }
+  addUrl = (url) => {
 
+  }
 
   render() {
     return (

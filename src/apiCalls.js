@@ -4,13 +4,13 @@ export const getUrls = () => {
       // .then(response => checkResponse(response))
 }
 
-// const checkResponse = (response: Response) => {
-//   if (response.ok) {
-//     return response.json()
-//   }
-//   handleError(response.status)
-// }
-//
-// const handleError = (status: number) => {
-//   throw Error('Sorry, something went wrong!')
-// }
+const checkResponse = (response: Response) => {
+  if (response.ok) {
+    return response.json()
+  }
+  handleError(response.status)
+}
+
+const handleError = (status: number) => {
+  throw Error('Sorry, something went wrong!')
+}
