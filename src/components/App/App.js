@@ -20,7 +20,7 @@ export class App extends Component {
       })
    .catch(error => this.setState({ error: error.message }))
 }
-  addUrl = (url) => {
+  postNewUrl = (newYrl) => {
 
   }
 
