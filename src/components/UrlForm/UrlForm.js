@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
 class UrlForm extends Component {
-  constructor(props) {
-    super();
-    this.props = props;
+  constructor() {
+    super()
     this.state = {
       title: '',
       urlToShorten: ''
-    };
+    }
   }
 
   handleNameChange = event => {
