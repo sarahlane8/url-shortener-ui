@@ -14,8 +14,13 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    //do a fetch call here and set the repsonse to state
-  }
+    getUrls()
+      .then(data => {
+        this.setState({ urls: data })
+      }, () => console.log(this.state.urls))
+   .catch(error => this.setState({ error: error.message }))
+}
+
 
   render() {
     return (
