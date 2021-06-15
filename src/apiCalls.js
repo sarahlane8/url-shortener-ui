@@ -4,7 +4,6 @@ export const getUrls = () => {
 }
 
 
-
 export const postUrl = newUrl => {
   return fetch('http://localhost:3001/api/v1/urls', {
     method: 'POST',
@@ -17,17 +16,12 @@ export const postUrl = newUrl => {
 }
 
 
-
-
-
-
 const checkResponse = (response: Response) => {
   if (response.ok) {
     return response.json()
   }
   handleError(response.status)
 }
-
 
 
 const handleError = (status: number) => {

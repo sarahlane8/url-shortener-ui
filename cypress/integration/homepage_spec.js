@@ -1,5 +1,6 @@
 describe('Homepage', () => {
    beforeEach( () => {
+    cy.stubPost()
     cy.fetchUrls()
     cy.visit('http://localhost:3000/')
   })
@@ -31,4 +32,18 @@ describe('Homepage', () => {
         .type('https://i.guim.co.uk/img/media/02088fb2247b13df646907d47f552dc69a236bc7/0_748_3235_1940/master/3235.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=172ccbaa7535c9e16d0455138d20a07c')
         .should('have.value', 'https://i.guim.co.uk/img/media/02088fb2247b13df646907d47f552dc69a236bc7/0_748_3235_1940/master/3235.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=172ccbaa7535c9e16d0455138d20a07c')
   })
+
+  it('Should render a new shortned URL after a user fills our the form and hits submit', () => {
+    cy.get('.url').should('have.length', 2)
+      .get('form > input').eq(0).type('Monkey photo').should('have.value', 'Monkey photo')
+      .get('form > input').eq(1)
+        .type('https://i.guim.co.uk/img/media/02088fb2247b13df646907d47f552dc69a236bc7/0_748_3235_1940/master/3235.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=172ccbaa7535c9e16d0455138d20a07c')
+        .should('have.value', 'https://i.guim.co.uk/img/media/02088fb2247b13df646907d47f552dc69a236bc7/0_748_3235_1940/master/3235.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=172ccbaa7535c9e16d0455138d20a07c')
+      .get('button').click()
+      .get('.url').should('have.length', 3)
+      .get('.url > h3').eq(2).should('contain', 'Awesome photo')
+      .get('.url > a ').eq(2).should('contain', 'http://localhost:3001/useshorturl/3')
+      .get('.url > p').eq(2).should('contain', 'https://i.guim.co.uk/img/media/02088fb2247b13df646907d47f552dc69a236bc7/0_748_3235_1940/master/3235.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=172ccbaa7535c9e16d0455138d20a07c')
+  })
+
 })
